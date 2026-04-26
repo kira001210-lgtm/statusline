@@ -143,7 +143,7 @@ BAR_W  = 15
 filled = PCT * BAR_W // 100
 empty  = BAR_W - filled
 bar_c  = color_pct(PCT)
-BAR = bar_c + '●' * filled + RESET + DIM + '●' * empty + RESET
+BAR = bar_c + '●' * filled + RESET + DIM + '○' * empty + RESET
 
 # ── Context size label ────────────────────────────────────────
 CTX_LABEL = ''
@@ -182,8 +182,14 @@ if AGENT:      L1 += f'{SEP}{MAGENTA}{AGENT}{RESET}'
 if VIM_MODE:
     if VIM_MODE == 'NORMAL':
         L1 += f'{SEP}{BLUE}{BOLD}NOR{RESET}'
-    else:
+    elif VIM_MODE == 'INSERT':
         L1 += f'{SEP}{GREEN}{BOLD}INS{RESET}'
+    elif VIM_MODE == 'VISUAL':
+        L1 += f'{SEP}{MAGENTA}{BOLD}VIS{RESET}'
+    elif VIM_MODE == 'VISUAL LINE':
+        L1 += f'{SEP}{MAGENTA}{BOLD}V-L{RESET}'
+    else:
+        L1 += f'{SEP}{DIM}{VIM_MODE}{RESET}'
 
 # ══════════════════════════════════════════════════════════════
 # LINE 2
